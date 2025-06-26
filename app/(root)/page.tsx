@@ -1,16 +1,35 @@
+import HeaderBox from '@/components/HeaderBox'
+import TotalBalanceBox from '@/components/TotalBalanceBox';
 import React from 'react'
 
 const Home = () => {
+
+  const loggedIn = {
+    firstName : 'Ifeoluwa'
+  };
+
   return (
-    <div className="flex-center min-h-screen bg-bank-gradient text-white">
-      <div className="text-center">
-        <h1 className="text-36 font-semibold mb-4">Welcome to Horizon Banking</h1>
-        <p className="text-18 text-gray-200">Your modern banking platform</p>
-        <div className="mt-8 p-6 bg-white/10 rounded-lg backdrop-blur-sm">
-          <p className="text-16">Tailwind styles are working! 🎉</p>
-        </div>
+
+    <section className='home'>
+      <div className='home-content'>
+        <header className='home-header'>
+          <HeaderBox 
+            type='greeting' title='Welcome' 
+            user={`${loggedIn?.firstName || 'Guest'}`} 
+            subtext='Access and manage your account and transactions efficiently'
+          />
+          <TotalBalanceBox accounts={[]} totalBanks={1} totalCurrentBalance={1230.35} />
+        </header> 
+        
+
       </div>
-    </div>
+
+    </section>
+
+
+
+    
+
   )
 }
 
