@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# banking-app-nextjs
+A banking app built with reactJS, nextJS 14, typescript, tailwind and other dev tools
 
 ## Getting Started
 
