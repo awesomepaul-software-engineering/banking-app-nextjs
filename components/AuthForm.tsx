@@ -13,7 +13,7 @@ import CustomInputForm from './CustomInputForm'
 import { Button } from './ui/button'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { SignUp, SignIn } from '@/lib/actions/user.actions'
+import { SignUp, SignIn, getLoggedInUser } from '@/lib/actions/user.actions'
 
 
 
@@ -22,6 +22,7 @@ const AuthForm = ({ type }: {type: string}) => {
 
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  
 
   const formSchema = authFormSchema(type);
   const router = useRouter()
@@ -36,15 +37,19 @@ const AuthForm = ({ type }: {type: string}) => {
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true);
+    console.log('Hmm')
 
     try {
       if (type === 'sign-up'){
+        console.log('SignUp Data', {data});
         const newUser = await SignUp(data);
+        console.log('SignUp Response', newUser);
         setUser(newUser)
       }
 
       if (type === 'sign-in'){
         const response = await SignIn({email: data.email, password: data.password});
+        console.log('sign in =>', response)
         if(response) router.push('/')
       }
 
@@ -118,6 +123,9 @@ const AuthForm = ({ type }: {type: string}) => {
                       <CustomInputForm control={form.control} name="ssn" placeholder='Example: 1234' label='SSN' />
                     </div>
 
+                    <CustomInputForm control={form.control} name="email" placeholder='Enter your email' label='Email' />
+                    <CustomInputForm control={form.control} name="password" placeholder='Enter your password' label='Password' />
+
                     
                   </> 
                 )}
@@ -164,9 +172,6 @@ const AuthForm = ({ type }: {type: string}) => {
               </Link>
 
             </footer>
-            
-          
-
             
           </>
         )

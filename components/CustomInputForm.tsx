@@ -29,7 +29,7 @@ const CustomInputForm = ({control, name, placeholder, label }: CustomFormInput) 
 
             <div className='flex w-full flex-col'>
               <FormControl>
-                <Input type={name === 'password' ? 'password' : 'text'}  placeholder={placeholder} className='input-class' {...field} />
+                <Input placeholder={placeholder} className='input-class' type={name === 'password' ? 'password' : 'text'}   {...field} />
               </FormControl>
               <FormMessage className='form-message mt-2' />
             </div>
