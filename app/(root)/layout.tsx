@@ -19,7 +19,7 @@ export default async function RootLayout({children,}: Readonly<{ children: React
       <SideBar user={loggedIn} />
       <div className="flex size-full flex-col">
         <div className="root-layout">
-          <Image src={"/icons/logo.svg"} width={30} hei ght={30} alt="menu"/>
+          <Image src={"/icons/logo.svg"} width={30} height={30} alt="menu"/>
           <div>
             <MobileNavBar user={loggedIn} />
           </div>

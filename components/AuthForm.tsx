@@ -13,7 +13,8 @@ import CustomInputForm from './CustomInputForm'
 import { Button } from './ui/button'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { SignUp, SignIn, getLoggedInUser } from '@/lib/actions/user.actions'
+import { SignUp, SignIn } from '@/lib/actions/user.actions'
+import PlaidLink from './PlaidLink'
 
 
 
@@ -40,9 +41,25 @@ const AuthForm = ({ type }: {type: string}) => {
     console.log('Hmm')
 
     try {
+
+
+
       if (type === 'sign-up'){
-        console.log('SignUp Data', {data});
-        const newUser = await SignUp(data);
+        const userData = {
+          firstName: data.firstName!,
+          lastName: data.lastName!,
+          address1: data.address1!,
+          city: data.city!,
+          state: data.state!,
+          postalCode: data.postalCode!,
+          dateOfBirth: data.dateOfBirth!,
+          ssn: data.ssn!,
+          email: data.email,
+          password: data.password
+        }
+
+        console.log('SignUp Data', {userData});
+        const newUser = await SignUp(userData);
         console.log('SignUp Response', newUser);
         setUser(newUser)
       }
@@ -55,7 +72,7 @@ const AuthForm = ({ type }: {type: string}) => {
 
 
     } catch (error) {
-      
+      console.log('Error in Authform', error)
     } finally {
       setIsLoading(false);
 
@@ -92,10 +109,9 @@ const AuthForm = ({ type }: {type: string}) => {
 
       {user ? (
         <div className='flex flex-col gap-4'>
-          {/* PlaidLink */}
-
+          <PlaidLink user={user} variant='primary'/>
         </div>
-        ) :  (
+        ) :  ( 
           <>
 
             <Form {...form}>
