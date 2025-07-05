@@ -7,7 +7,7 @@ import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils"
 import { CountryCode, ProcessorTokenCreateRequest, ProcessorTokenCreateRequestProcessorEnum, Products } from "plaid"
 import { plaidClient } from "@/lib/plaid"
 import { revalidatePath } from "next/cache"
-import { createDwollaCustomer } from "../dwolla"
+import { createDwollaCustomer, addFundingSource} from "../dwolla"
 
 const {
   APPWRITE_DATABASE_ID,
