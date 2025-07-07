@@ -75,7 +75,7 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
       access_token: bank.accessToken,
     });
     const accountData = accountsResponse.data.accounts[0];
-    console.log('BankaccessToken', bank, accountData)
+    // console.log('BankaccessToken', bank, accountData)
     // get transfer transactions from appwrite
     // const transferTransactionsData = await getTransactionsByBankId({
     //   bankId: bank.$id,
@@ -167,10 +167,10 @@ export const getTransactions = async ({
       const response = await plaidClient.transactionsSync({
         access_token: accessToken,
       });
-      console.log('responseresponse', response)
+      // console.log('responseresponse', response)
 
       const data = response.data;
-
+      // console.log('parseStringify', JSON.stringify(data))
       transactions = response.data.added.map((transaction) => ({
         id: transaction.transaction_id,
         name: transaction.name,

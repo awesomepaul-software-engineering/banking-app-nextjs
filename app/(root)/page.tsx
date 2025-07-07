@@ -7,7 +7,7 @@ import { getLoggedInUser } from '@/lib/actions/user.actions';
 import React from 'react'
 
 const Home = async ({ searchParams: {id, page}}: SearchParamProps ) => {
-  const currentPage =  Number(page as string) || 1
+  const currentPage =  Number(page as string) || 1;
   // const loggedIn = {
   //   firstName: 'Ifeoluwa',
   //   lastName: 'Paul',
@@ -19,7 +19,7 @@ const Home = async ({ searchParams: {id, page}}: SearchParamProps ) => {
   if (!loggedIn) return;
 
   const accounts = await getAccounts({ userId: loggedIn.$id});
-  console.log('Accountsss', accounts);
+  // console.log('Accountsss', accounts);
 
   if(!accounts) return;
 
@@ -28,7 +28,7 @@ const Home = async ({ searchParams: {id, page}}: SearchParamProps ) => {
   console.log('appwriteItemId', appwriteItemId)
   // Only fetch account if we have a valid appwriteItemId
   const account = appwriteItemId ? await getAccount({ appwriteItemId }) : null;
-  console.log({accountsData, account})
+  // console.log({accountsData, account})
 
   return (
 
