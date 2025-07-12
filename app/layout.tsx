@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
@@ -5,7 +7,7 @@ import "./globals.css";
 // const inter = Inter({
 //   variable: "--font-inter",
 //   subsets: ["latin"],
-// });
+// }); 
 
 // const firaCode = Fira_Code({
 //   variable: "--font-fira-code",
