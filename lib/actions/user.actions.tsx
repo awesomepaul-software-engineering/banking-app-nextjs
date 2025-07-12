@@ -269,15 +269,39 @@ export const getBank = async ({ documentId }: getBankProps ) => {
 export const getUserInfo = async ({ userId }: getUserInfoProps) => {
   try {
     const { database } = await createAdminClient();
-
+    
     const user = await database.listDocuments(
       APPWRITE_DATABASE_ID!,
       APPWRITE_USER_COLLECTION_ID!,
       [Query.equal('userId', [userId])]
     )
-
+    
     return parseStringify(user.documents[0]);
   } catch (error) {
     console.log(error)
+  }
+}
+
+
+export const getBankByAccountId = async ({ accountId }: getBankByAccountIdProps ) => {
+  try {
+    // Validate documentId before querying
+    if (!accountId) {
+      throw new Error('accountId is required but was not provided');
+    }
+
+    const {database} = await createAdminClient();
+    const bank = await database.listDocuments(
+      APPWRITE_DATABASE_ID!,
+      APPWRITE_BANK_COLLECTION_ID!,
+      [Query.equal('accountId', [accountId])]
+    );
+
+    if(bank.total != 1) return null;
+
+    return parseStringify(bank.documents[0]);
+  } catch (error) {
+    console.log(`Unable to getBankByAccountId with documentId: ${accountId}. Error: ${error}`);
+    throw new Error(`Error while getting bank ${error}`);
   }
 }

@@ -18,7 +18,6 @@ import { getBanks, getBank } from "./user.actions";
 // Get multiple bank accounts
 export const getAccounts = async ({ userId }: getAccountsProps) => {
   try {
-    console.log('Useiddddd', userId)
     // get banks from db
     const banks = await getBanks({ userId });
 
@@ -46,7 +45,7 @@ export const getAccounts = async ({ userId }: getAccountsProps) => {
           type: accountData.type as string,
           subtype: accountData.subtype! as string,
           appwriteItemId: bank.$id,
-          shareableId: bank.shareableId,
+          shareableId: bank.sharableId,
         };
 
         return account;

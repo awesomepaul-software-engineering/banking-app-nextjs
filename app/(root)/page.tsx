@@ -1,5 +1,5 @@
 import HeaderBox from '@/components/HeaderBox'
-import RecentTransactions from '@/components/recentTransactions';
+import RecentTransactions from '@/components/RecentTransactions';
 import RightSideBar from '@/components/RightSideBar';
 import TotalBalanceBox from '@/components/TotalBalanceBox';
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions';
@@ -8,11 +8,6 @@ import React from 'react'
 
 const Home = async ({ searchParams: {id, page}}: SearchParamProps ) => {
   const currentPage =  Number(page as string) || 1;
-  // const loggedIn = {
-  //   firstName: 'Ifeoluwa',
-  //   lastName: 'Paul',
-  //   email: 'awesomepaul007@gmail.com'
-  // };
 
   const loggedIn = await getLoggedInUser();
   console.log('loggedInloggedIn', loggedIn)

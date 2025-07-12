@@ -88,7 +88,8 @@ declare type Bank = {
   accessToken: string;
   fundingSourceUrl: string;
   userId: string;
-  shareableId: string;
+  // shareableId: string; // right
+  sharableId: string; // wrongly stored in db ... needs update lateron
 };
 
 declare type AccountTypes =
