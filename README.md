@@ -315,8 +315,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 🙏 Acknowledgments
 
-Special thanks to **JSMastery** YouTube channel for the excellent tutorial and inspiration that helped bring this project to life. Their comprehensive teaching approach and detailed explanations made it possible to build this sophisticated banking application.
-
 - **JSMastery YouTube Channel**: [https://www.youtube.com/@javascriptmastery](https://www.youtube.com/@javascriptmastery)
 - **Tutorial Reference**: Modern banking application tutorial series
 - **Learning Platform**: Provided the foundation and best practices for this implementation
@@ -324,8 +322,8 @@ Special thanks to **JSMastery** YouTube channel for the excellent tutorial and i
 ## 👨‍💻 Author
 
 **AwesomePaul**
-- GitHub: [@AwesomePaul](https://github.com/AwesomePaul007)
-- LinkedIn: [AwesomePaul](https://www.linkedin.com/in/ifeoluwa-paul/)
+- GitHub: [@AwesomePaul007](https://github.com/AwesomePaul007)
+- LinkedIn: [Paul Ifeoluwa](https://www.linkedin.com/in/ifeoluwa-paul/)
 - Email: awesomepaul007@gmail.com
 
 ---
