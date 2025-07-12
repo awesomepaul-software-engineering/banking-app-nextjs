@@ -4,12 +4,24 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs'
 import { BankTabItem } from './BankTabItem'
 import BankInfo from './BankInfo'
 import TransactionsTable from './TransactionsTable'
+import { Pagination } from './Pagination'
 
 const RecentTransactions = ({
   accounts, transactions=[],
   appwriteItemId,page=1
 }: RecentTransactionsProps) => {
-  console.log('Accttt', accounts)
+  
+  // Pagination logic
+  // Assuming transactions is an array of transaction objects
+  // and page is the current page number (1-indexed)
+  // For example, if you want to show 10 transactions per page:
+  const rowsPerPage = 10;
+  const totalPages = Math.ceil(transactions.length / rowsPerPage);
+  const indexOfLastTransactionPerPage = page * rowsPerPage;
+  const indexOfFirstTransactionPerPage = indexOfLastTransactionPerPage - rowsPerPage;
+
+  const currentTransactions = transactions.slice(indexOfFirstTransactionPerPage, indexOfLastTransactionPerPage);
+
   return (
     <section className='recent-transactions'>
       <header className='flex item-center justify-between'>
@@ -41,7 +53,13 @@ const RecentTransactions = ({
               type='full'
             />
 
-            <TransactionsTable transactions={transactions} />
+            <TransactionsTable transactions={currentTransactions} />
+
+            {totalPages > 1 && (
+              <Pagination totalPages={totalPages} page={page} />
+            )}
+            
+
           </TabsContent>
         ))}
 
